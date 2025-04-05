@@ -1,18 +1,23 @@
 call plug#begin()
-" Display if updates for plugins are available
+
 Plug 'semanser/vim-outdated-plugins'
+
 " Show trailing whitespaces (this could also easily be achieved by settings,
 " but the plugin is very neat)
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
-Plug 'sirtaj/vim-openscad'
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
+"lua require'nvim-treesitter.configs'.setup{highlight={enable=true}} 
 
 " Explicitely set legacy colorscheme to overwrite the new neovim default
 " colorscheme until I find the time to configure colors properly
