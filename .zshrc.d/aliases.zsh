@@ -1,5 +1,5 @@
 # Aliases
-alias d="/Users/janolehuebner/dev/bin/mdl"
+alias d="$HOME/dev/bin/mdl"
 alias vim="nvim"
 alias vi="nvim"
 alias nano="nvim"
@@ -8,5 +8,5 @@ alias tf="tofu"
 alias terraform="tofu"
 alias pip="pip3"
 alias python="python3"
-alias cookies="open /Users/janolehuebner/Library/Containers/com.apple.Safari/Data/Library/Cookies/"
+alias cookies="open $HOME/Library/Containers/com.apple.Safari/Data/Library/Cookies/"
 alias dotfiles="git --work-tree=$HOME --git-dir=$HOME/.dotgit "
