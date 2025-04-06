@@ -19,4 +19,13 @@ install_dotfiles () {
         dotfiles_install_error="yes"
       fi
     fi
+
+    if [[ ! -d ~/.oh-my-zsh ]]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/themes/powerlevel10k
+    fi
+
+
+
 }
+
