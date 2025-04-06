@@ -1,5 +1,4 @@
 # Aliases
-alias d="$HOME/dev/bin/mdl"
 alias vim="nvim"
 alias vi="nvim"
 alias nano="nvim"

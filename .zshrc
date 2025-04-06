@@ -1,9 +1,16 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
+
+# ── 2. Load .env files from ~/.environment.d/ ───────────────────
+# Automatically export all variables defined while sourcing .env files
+setopt allexport
+for file in ~/.environment.d/*.env(.N); do
+  source "$file"
+done
+unset file
+unsetopt allexport
+
+
+
 
 # Load a function that allows us to import other function definitions from
 # the ZSH_FUNC_PATH without providing their exact location
@@ -22,6 +29,7 @@ autosource youtube
 autosource milan
 autosource nas
 autosource fuck
+autosource download
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
