@@ -1,13 +1,13 @@
 patreon() {
-  ssh janolehuebner@192.168.84.3 "zsh /mnt/hdd/DATA/.scripts/patreon.sh"
+  ssh $NAS_USER@$NAS_IP "zsh /mnt/hdd/DATA/.scripts/patreon.sh"
 }
 
-fansly () {
+fansly() {
     local users="$*"
-    ssh janolehuebner@192.168.84.3 "cd /mnt/hdd/DATA/.scripts && echo $(pass sudo-hannah) | sudo -S ./fansly.sh \"$users\""
+    ssh $NAS_USER@$NAS_IP "cd /mnt/hdd/DATA/.scripts && echo $(pass $NAS_TOKEN_NAME_IN_STORE) | sudo -S ./fansly.sh \"$users\""
 }
 
 onlyfans() {
-  ssh janolehuebner@192.168.84.3 "cd /mnt/hdd/DATA/.scripts && echo $(pass sudo-hannah) | sudo -S ./of.sh"
+  ssh $NAS_USER@$NAS_IP "cd /mnt/hdd/DATA/.scripts && echo $(pass $NAS_TOKEN_NAME_IN_STORE) | sudo -S ./of.sh"
 }
 

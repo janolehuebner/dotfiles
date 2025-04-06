@@ -29,7 +29,7 @@ ytr () {
         return 1
     fi
 
-    local token="$(pass tube.lan)"
+    local token="$(pass $TUBE_TOKEN_NAME_IN_STORE)"
     local json_data=$(jq -n --arg youtube_id "$youtube_id" '{
         data: [
             {
@@ -40,7 +40,7 @@ ytr () {
         autostart: true
     }')
 
-    curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $token" -d "$json_data" http://192.168.84.3:4601/api/download/
+    curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $token" -d "$json_data" http://$NAS_IP:4601/api/download/
 }
 
 
@@ -58,7 +58,7 @@ yts() {
     fi
 
     # Set the token and URL
-    local token="$(pass tube.lan)"
+    local token="$(pass $TUBE_TOKEN_NAME_IN_STORE)"
 
     # Initialize an empty array to store video data
     local video_data="[]"
@@ -81,7 +81,7 @@ yts() {
         autostart: true
     }')
 
-    curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $token" -d "$json_data" http://192.168.84.3:4601/api/download/
+    curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $token" -d "$json_data" http://$NAS_IP:4601/api/download/
 }
 
 
