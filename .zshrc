@@ -21,7 +21,7 @@ unsetopt allexport
 autosource youtube
 autosource milan
 autosource nas
-
+autosource fuck
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
