@@ -1,0 +1,29 @@
+[user]
+	name = Jan-Ole Hübner
+	email = jan-ole@huebner.pink
+[core]
+	excludesfile = /Users/janolehuebner/.gitignore_global
+	autocrlf = input
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+    submodule = true
+    fetch = true
+    pull = true
+[push]
+    default = simple
+[pull]
+    ff = only
+[status]
+    submoduleSummary = true
+[pager]
+    log = less --chop-long-lines --shift 3
+[alias]
+    graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    chronograph = graph --date-order
+[init]
+    defaultBranch = main
