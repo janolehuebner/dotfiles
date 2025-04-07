@@ -27,20 +27,6 @@ if ! typeset -f ytr >/dev/null; then
 	source ~/.zsh_functions/youtube.zsh  
 fi
 
-d () {
-	local url="${1:-$(pbpaste)}"
-	if [[ -z "$url" ]]; then
-		echo "No URL provided and clipboard is empty."
-		return 1
-	fi
-	case "$url" in
-		(*youtube*|*youtu.be*) echo "Detected YouTube URL: $url"
-			ytr "$url" ;;
-		(*qobuz*) echo "Detected Qobuz URL: $url"
-			mdl "$url" ;;
-		(*) echo "Unknown URL: $url" ;;
-	esac
-}
 mdl () {
 cwd=$(pwd)
 share_on_nas="192.168.84.3/media"
@@ -73,8 +59,9 @@ if [[ "$*" == *"tidal.com"* ]]; then
     echo "TIDAL DETECTED"
     tidal-dl -l $*
 else
-    echo "QOBUZ DETECTED"
-    qobuz-dl dl $*
+    echo "Using qobuz-dl via uvx at: $(which uvx)"
+    echo "QOBUZ URL: $*"
+    uvx qobuz-dl dl $*
 fi
 
 echo "Unmounting SMB share..."
@@ -82,4 +69,20 @@ sleep 1
 umount "$mount_point"
 cd $cwd
 open "http://bliss.lan/"
+}
+
+d () {
+	local url="${1:-$(pbpaste)}"
+	if [[ -z "$url" ]]
+	then
+		echo "No URL provided and clipboard is empty."
+		return 1
+	fi
+	case "$url" in
+		(*youtube*|*youtu.be*) echo "Detected YouTube URL: $url"
+			ytr "$url" ;;
+		(*qobuz*) echo "Detected Qobuz URL: $url"
+			mdl "$url" ;;
+		(*) echo "Unknown URL: $url" ;;
+	esac
 }
