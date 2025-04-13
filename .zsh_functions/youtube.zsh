@@ -66,7 +66,7 @@ yts() {
     # Get the video IDs from yt-dlp and loop through each one
     while read -r youtube_id; do
         # Add each video ID to the array of data (accumulating in $video_data)
-        video_data=$(echo "$video_data" | jq --arg youtube_id "$youtube_id" '. + [{youtube_id: $youtube_id, status: "priority"}]')
+        video_data=$(echo "$video_data" | jq --arg youtube_id "$youtube_id" '. + [{youtube_id: $youtube_id, status: "pending"}]')
     done < <(yt-dlp "https://www.youtube.com/@$1/shorts" --flat-playlist --print "%(id)s")
 
     # Check if video_data is still an empty array (meaning no videos were found)
