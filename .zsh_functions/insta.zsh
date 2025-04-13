@@ -27,7 +27,7 @@ function insta() {
         esac
         shift
     done
-
+    echo "-----$(date)------"
     if [ ! -d "$insta_mount_point" ]; then
         echo "Creating mount point directory..."
         mkdir -p "$insta_mount_point"
