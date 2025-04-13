@@ -1,9 +1,9 @@
 [user]
-	name = Jan-Ole Hübner
-	email = jan-ole@huebner.pink
+    name = $GIT_AUTHOR
+    email = $GIT_EMAIL
 [core]
-	excludesfile = /Users/janolehuebner/.gitignore_global
-	autocrlf = input
+    excludesfile = $HOME/.config/git/.gitignore_global
+    autocrlf = input
 [color]
     diff = auto
     status = auto
@@ -18,6 +18,9 @@
     default = simple
 [pull]
     ff = only
+[core]
+    excludesfile = ~/.gitignore
+    autocrlf = input
 [status]
     submoduleSummary = true
 [pager]
@@ -25,5 +28,7 @@
 [alias]
     graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     chronograph = graph --date-order
+    ff = merge --ff-only
+    amend = commit --amend --reuse-message=HEAD
 [init]
     defaultBranch = main
