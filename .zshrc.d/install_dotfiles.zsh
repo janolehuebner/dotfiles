@@ -21,10 +21,29 @@ install_dotfiles () {
     fi
 
     if [[ ! -d ~/.oh-my-zsh ]]; then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
         git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/themes/powerlevel10k
     fi
 
+    # Path to Brewfile
+    BREWFILE="$HOME/.Brewfile"
+
+    if ! command -v brew &>/dev/null; then
+      echo "Homebrew not found. Installing..."
+
+      if [[ "$OSTYPE" == "darwin"* ]]; then
+
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      
+
+          if [[ -f "$BREWFILE" ]]; then
+            echo "Installing from Brewfile: $BREWFILE"
+            brew bundle --file="$BREWFILE"
+          else
+            echo "No Brewfile found at $BREWFILE"
+          fi
+      fi
+    fi
 
 
 }
