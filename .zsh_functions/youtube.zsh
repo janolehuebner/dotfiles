@@ -90,7 +90,7 @@ yts() {
 #
 
 check_shorts() {
-    channels=$TUBE_DEFAULT_USERS
+    channels=("${TUBE_DEFAULT_USERS[@]}")
     # Loop through each channel and call yts
     for channel in "${channels[@]}"; do
         echo "Checking shorts for channel: $channel"
