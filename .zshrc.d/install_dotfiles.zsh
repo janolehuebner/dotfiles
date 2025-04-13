@@ -30,6 +30,12 @@ install_dotfiles () {
 
     if ! command -v brew &>/dev/null; then
       echo "Homebrew not found. Installing..."
+      
+      if uname -r | grep -qi "truenas"; then
+        mkdir $HOME/linuxbrew
+        sudo ln -s $HOME/linuxbrew /home/linuxbrew
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      fi
 
       if [[ "$OSTYPE" == "darwin"* ]]; then
 
