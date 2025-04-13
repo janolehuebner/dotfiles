@@ -1,9 +1,3 @@
-[user]
-    name = $GIT_AUTHOR
-    email = $GIT_EMAIL
-[core]
-    excludesfile = $HOME/.config/git/.gitignore_global
-    autocrlf = input
 [color]
     diff = auto
     status = auto
