@@ -29,7 +29,7 @@ ytr () {
         return 1
     fi
 
-    local token="$(pass $TUBE_TOKEN_NAME_IN_STORE)"
+    local token="$(pass $TUBE_TOKEN_NAME_IN_STORE 2>/dev/null)"
     local json_data=$(jq -n --arg youtube_id "$youtube_id" '{
         data: [
             {
@@ -58,7 +58,7 @@ yts() {
     fi
 
     # Set the token and URL
-    local token="$(pass $TUBE_TOKEN_NAME_IN_STORE)"
+    local token="$(pass $TUBE_TOKEN_NAME_IN_STORE 2>/dev/null)"
 
     # Initialize an empty array to store video data
     local video_data="[]"

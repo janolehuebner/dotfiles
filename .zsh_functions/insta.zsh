@@ -41,7 +41,7 @@ insta () {
 	if ! $is_local_nas; then
 		if ! check_smb_mount; then
 			echo "Mounting SMB share..."
-			/sbin/mount_smbfs "smb://janolehuebner:$(pass sudo-lana)@$insta_share_on_nas" "$insta_mount_point"
+			/sbin/mount_smbfs "smb://janolehuebner:$(pass sudo-lana 2>/dev/null)@$insta_share_on_nas" "$insta_mount_point"
 		fi
 		if ! check_smb_mount; then
 			echo "Failed to mount SMB share. Exiting."
