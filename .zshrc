@@ -25,6 +25,7 @@ done
 unset file
 unsetopt allexport
 
+autosource insta
 autosource youtube
 autosource milan
 autosource nas
