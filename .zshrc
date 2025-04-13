@@ -1,4 +1,7 @@
 export PATH="$PATH:$HOME/.local/bin:$HOME/bin"
+if uname -r | grep -qi "truenas"; then
+  export PATH="$HOME/bin:$HOME/bin/nvim/bin:$PATH"
+fi
 
 # ── 2. Load .env files from ~/.environment.d/ ───────────────────
 # Automatically export all variables defined while sourcing .env files
@@ -32,6 +35,6 @@ autosource nas
 autosource fuck
 autosource download
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
