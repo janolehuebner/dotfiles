@@ -55,7 +55,7 @@ insta () {
     user_list=("${insta_default_users[@]}")
   fi
 
-  local cmd=(uvx --with browser_cookie3 instaloader -b Safari "${user_list[@]}" --fast-update)
+  local cmd=(uvx --with browser_cookie3 instaloader -b Safari "${user_list[@]}" --fast-update --abort-on=302,400,401,429)
   if $stories_only; then
     cmd+=(--stories --no-profile-pic --no-posts)
   else

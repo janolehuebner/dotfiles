@@ -31,6 +31,5 @@ autosource nas
 autosource fuck
 autosource download
 
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
+eval "$(zoxide init --cmd cd zsh)"
 
